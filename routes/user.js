@@ -18,6 +18,7 @@ router.get('/:id', async (req, res)=>{
             userid: userData[0].userid,
             fullname: userData[0].fullname,
             email: userData[0].email,
+            profileImage: userData[0].imageurl,
             phonenumber: userData[0].phonenumber,
             bonusprogress: userData[0].bonusprogress,
             address: userData[0].address,
@@ -53,6 +54,25 @@ router.post('/:userId/address', async (req, res) =>{
     } catch (error) {
         console.log(error)
         res.status(400).json("Error saving user address")
+    }
+
+})
+
+// ADD IMAGE
+router.post('/:userId/image', async (req, res) =>{
+    const {userId} = req.params;
+    const {imageUrl} = req.body;
+    try {
+        const userImageUrl = await database('users').update({
+            imageurl: imageUrl
+        }).where({
+            userid: userId
+        }).returning('imageurl');
+
+        res.status(200).json(userImageUrl[0])
+    } catch (error) {
+        console.log(error)
+        res.status(400).json("Error saving user image")
     }
 
 })
