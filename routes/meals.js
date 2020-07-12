@@ -11,7 +11,6 @@ const database = require('../database');
 //     const response = await database('meals').insert(meals).returning('*');
 //     res.send(response)
 //   } catch (error) {
-//     console.log(error)
 //     res.status(400).send(error)
 //   }
   
@@ -89,7 +88,6 @@ router.get('/category/:catId', async (req, res) =>{
     if(Boolean(searchQuery)){
       categoryMeals = allMeals.filter(meal => meal.categories.includes(req.params.catId)).filter(meal => meal.title.toLowerCase().includes(searchQuery.toLowerCase()))
     }
-    console.log(categoryMeals)
     res.status(200).json(categoryMeals);
   } catch (error) {
     res.status(400).json("Error getting category meals")
@@ -104,7 +102,6 @@ router.post('/favMeals', async (req, res)=>{
     const meals = await database.select('*').from('meals').whereIn('id', mealsId );
     res.status(200).json(meals);
   } catch (error) {
-    console.log(error)
     res.status(400).json("Error fetching user's fav meals")
   }
   

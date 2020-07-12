@@ -30,7 +30,6 @@ router.post('/register', async (req, res) =>{
     
     // HASHPASSWORD
     const hashedPassword = await bcrypt.hashSync(password);
-    console.log(hashedPassword)
     
     // CREATE A NEW USER
     try {
@@ -70,7 +69,6 @@ router.post('/register', async (req, res) =>{
             }))
         })
     } catch (error) {
-        console.log(error)
         res.status(400).json('Error registering user')
     }
 })
@@ -127,10 +125,8 @@ router.post('/login', async (req, res) =>{
                 }))
             }))
         })
-        console.log(user)
         
     } catch (error) {
-        console.log(error)
         res.status(400).json("Error logging in.");
         return;
     }

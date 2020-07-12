@@ -52,7 +52,6 @@ router.post('/:userId/address', async (req, res) =>{
 
         res.status(200).json(userAddress[0])
     } catch (error) {
-        console.log(error)
         res.status(400).json("Error saving user address")
     }
 
@@ -71,7 +70,6 @@ router.post('/:userId/image', async (req, res) =>{
 
         res.status(200).json(userImageUrl[0])
     } catch (error) {
-        console.log(error)
         res.status(400).json("Error saving user image")
     }
 
@@ -90,7 +88,6 @@ router.post('/:userId/favMeals', async (req, res) =>{
             const favMeals = await database('users').update({favoritemeals:  newFavMeals}).where('userid', '=', userId);
             res.status(200).json('Fav Meal added')
         } catch (error) {
-            console.log(error)
             res.status(400).json('Error saving new fav meal to db')
         }
 
