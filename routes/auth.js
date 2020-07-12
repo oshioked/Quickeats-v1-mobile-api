@@ -38,7 +38,7 @@ router.post('/register', async (req, res) =>{
             fullname: fullName, 
             email: email.toLowerCase(), 
             phonenumber: phoneNumber, 
-            bonusprogress: 0.05,
+            bonusprogress: 0.3,
             joined: new Date(),
             password:  hashedPassword
         });

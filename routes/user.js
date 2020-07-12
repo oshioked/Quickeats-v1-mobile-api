@@ -38,6 +38,24 @@ router.get('/:id', async (req, res)=>{
 })
 
 
+// ADD ADDRESS
+router.post('/:userId/address', async (req, res) =>{
+    const {userId} = req.params;
+    const {address} = req.body;
+    try {
+        const userAddress = await database('users').update({
+            address: address
+        }).where({
+            userid: userId
+        }).returning('address');
+
+        res.status(200).json(userAddress[0])
+    } catch (error) {
+        console.log(error)
+        res.status(400).json("Error saving user address")
+    }
+
+})
 
 // ADD FAVORITE MEALS
 router.post('/:userId/favMeals', async (req, res) =>{
