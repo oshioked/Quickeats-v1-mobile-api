@@ -5,7 +5,7 @@ const MEALS = [
         title: 'Spaghetti and Turkey',
         imageurl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcT8YbEiYxnJBOvfzqr5-cvkAlgg9NCQIOn3nb13wR9dBxUS1gYK7tpF7OGgSyb8-xQg6xVpZkaCLeAdhoINxyQDLVwSAaoBjAJbOHrHgj6ypTQuxAEPwAfnTb3tGQxQOkAjUaZ0pR3iw9p-55E3XNWmqXzwHO8sB8SB3ZiUd2Pz6r0BU4njuBWmaD3l4LYnBOzyjqhj1lzisdL-cRzdicQ6e0bIDVi_EouH2m5ntQy312zHhcxwy9iTQIBwcbXPYhcRX-N-PEHgah6aMQCgYfOEY0DkMSB4FpbNc-Hv9poM9b6SBjZLMOrxWYf0jU054n0TUwFyQwPXtNW_BPDghXGoDn-9Jyh9jCLir1wTxFlY825EnNDfGVuBwz_E4eO0oVes9PFCaSSUwCEq5a0BHrC7gu2nykyZDOSanUcGjpekpQXBxNcrQ2HBygpPaPyd271Wrb11Ng&usqp=CAU',
         price: 1200,
-        description: "Nice spagetti with turkey. Spagetti prepared personally by oshioke so you know it's great. Turkey by Ifeoluwa so you know it's divine",
+        description: "Nice spagetti with turkey. Spagetti prepared personally by oshioke so you know it's great. Turkey by me(oshioke again) so you know it's divine",
         categories: ['c4'],
         readytime: 955,
     },
@@ -13,9 +13,9 @@ const MEALS = [
         title: 'Jollof rice and Beef',
         imageurl: 'https://elleyajoku.com/wp-content/uploads/2017/10/jollof-rice-cooking-500x490.jpg',
         price: 1200,
-        description: "Delicious jollof rice (naija) with Fish. Jollof prepared personally by oshioke so you know it's great. Beef by Ifeoluwa so you know it's divine",
+        description: "Delicious jollof rice (naija) with Fish. Jollof prepared personally by oshioke so you know it's great. Beef by me(oshioke again)so you know it's divine",
         categories: ['c4'],
-        readytime: 2155,
+        readytime: 755,
     },
     {
         title: 'Yam porridge with Fish',
@@ -47,7 +47,7 @@ const MEALS = [
         price: 1200,
         description: "Burger. Random stuff here to fill in the space cause the alternative is to fill the space with my tears cause I'm personally preparing this dummy data and I hate it",
         categories: ['c1'],
-        readytime: 955
+        readytime: 255
     },
     {
          
@@ -65,7 +65,7 @@ const MEALS = [
         price: 1000,
         description: "Chi-exotic. Random stuff here to fill in the space cause the alternative is to fill the space with my tears cause I'm personally preparing this dummy data and I hate it",
         categories: ['c2'],
-        readytime: 955,
+        readytime: 5,
     },
     {
          
@@ -74,7 +74,7 @@ const MEALS = [
         price: 800,
         description: "Berry blast. Random stuff here to fill in the space cause the alternative is to fill the space with my tears cause I'm personally preparing this dummy data and I hate it",
         categories: ['c2'],
-        readytime: 955,
+        readytime: 5,
     },
     {
         
@@ -83,7 +83,7 @@ const MEALS = [
         price: 1000,
         description: "Fried Plantain. Random stuff here to fill in the space cause the alternative is to fill the space with my tears cause I'm personally preparing this dummy data and I hate it",
         categories: ['c3'],
-        readytime: 955,
+        readytime: 105,
     },
     {
         
@@ -92,7 +92,7 @@ const MEALS = [
         price: 800,
         description: "Akara's balls. Random stuff here to fill in the space cause the alternative is to fill the space with my tears cause I'm personally preparing this dummy data and I hate it",
         categories: ['c3'],
-        readytime:  895
+        readytime:  105
     },
     {
          
@@ -101,7 +101,7 @@ const MEALS = [
         price: 1000,
         description: "Sandwich. Random stuff here to fill in the space cause the alternative is to fill the space with my tears cause I'm personally preparing this dummy data and I hate it",
         categories: ['c3'],
-        readytime: 895
+        readytime: 595
     },
     {
         title: 'Cupcakes',
@@ -109,7 +109,7 @@ const MEALS = [
         price: 500,
         description: "Cupcakes. Random stuff here to fill in the space cause the alternative is to fill the space with my tears cause I'm personally preparing this dummy data and I hate it",
         categories: ['c1'],
-        readytime: 895
+        readytime: 595
     },
     {
         title: 'Noodles with Boiled Egg and Beef',
@@ -117,7 +117,7 @@ const MEALS = [
         price: 950,
         description: ". Random stuff here to fill in the space cause the alternative is to fill the space with my tears cause I'm personally preparing this dummy data and I hate it",
         categories: ['c3', 'c4'],
-        readytime: 895
+        readytime: 295
     }
 ]
 
