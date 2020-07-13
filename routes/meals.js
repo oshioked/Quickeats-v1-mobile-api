@@ -9,6 +9,7 @@ const database = require('../database');
 router.get('/postall', async (req, res) =>{
   try {
     const response = await database('meals').insert(meals).returning('*');
+    res.status(200).json(response)
   } catch (error) {
     console.log(error)
     res.status(400).send('error')

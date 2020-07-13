@@ -5,7 +5,7 @@ const MEALS = [
         title: 'Spaghetti and Turkey',
         imageurl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcT8YbEiYxnJBOvfzqr5-cvkAlgg9NCQIOn3nb13wR9dBxUS1gYK7tpF7OGgSyb8-xQg6xVpZkaCLeAdhoINxyQDLVwSAaoBjAJbOHrHgj6ypTQuxAEPwAfnTb3tGQxQOkAjUaZ0pR3iw9p-55E3XNWmqXzwHO8sB8SB3ZiUd2Pz6r0BU4njuBWmaD3l4LYnBOzyjqhj1lzisdL-cRzdicQ6e0bIDVi_EouH2m5ntQy312zHhcxwy9iTQIBwcbXPYhcRX-N-PEHgah6aMQCgYfOEY0DkMSB4FpbNc-Hv9poM9b6SBjZLMOrxWYf0jU054n0TUwFyQwPXtNW_BPDghXGoDn-9Jyh9jCLir1wTxFlY825EnNDfGVuBwz_E4eO0oVes9PFCaSSUwCEq5a0BHrC7gu2nykyZDOSanUcGjpekpQXBxNcrQ2HBygpPaPyd271Wrb11Ng&usqp=CAU',
         price: 1200,
-        description: "Nice spagetti with turkey. Spagetti prepared personally by oshioke so you know it's great. Turkey by me(oshioke again) so you know it's divine",
+        description: "Nice spagetti with turkey. Spagetti prepared personally by oshioke so you know it's great. Turkey by oshioke so you know it's divine",
         categories: ['c4'],
         readytime: 955,
     },
@@ -13,7 +13,7 @@ const MEALS = [
         title: 'Jollof rice and Beef',
         imageurl: 'https://elleyajoku.com/wp-content/uploads/2017/10/jollof-rice-cooking-500x490.jpg',
         price: 1200,
-        description: "Delicious jollof rice (naija) with Fish. Jollof prepared personally by oshioke so you know it's great. Beef by me(oshioke again)so you know it's divine",
+        description: "Delicious jollof rice. Jollof prepared personally by oshioke so you know it's great. Beef by oshioke so you know it's divine",
         categories: ['c4'],
         readytime: 755,
     },
@@ -21,7 +21,7 @@ const MEALS = [
         title: 'Yam porridge with Fish',
         imageurl: 'https://www.africanahome.ae/store/wp-content/uploads/2017/12/2-2000x1324.jpg',
         price: 1200,
-        description: "Yam porridge mad die. Random stuff here to fill in the space cause the alternative is to fill the space with my tears cause I'm personally preparing this dummy data and I hate it",
+        description: "Yam porridge. Random stuff here to fill in the space cause the alternative is to fill the space with my tears cause I'm personally preparing this dummy data and I hate it",
         categories: ['c4'],
         readytime: 955,
     },
@@ -113,9 +113,9 @@ const MEALS = [
     },
     {
         title: 'Noodles with Boiled Egg and Beef',
-        imageurl: "https://lh3.googleusercontent.com/proxy/0gTd8aTE2PUlBAW3vljwf6rgxukvLfh0qFpWmLxJLqvlaEu0uD5qfwWKNDW_XR3TpPuBG8z7augBPHeRVOnfnAUHV2ynKzJEMWKeo9pGdlcv0S8dE5khRL6FJ8PN",
+        imageurl: "https://indomie.ng/wp-content/uploads/2019/05/about-banner-1.jpg",
         price: 950,
-        description: ". Random stuff here to fill in the space cause the alternative is to fill the space with my tears cause I'm personally preparing this dummy data and I hate it",
+        description: "Noodles. Random stuff here to fill in the space cause the alternative is to fill the space with my tears cause I'm personally preparing this dummy data and I hate it",
         categories: ['c3', 'c4'],
         readytime: 295
     }
