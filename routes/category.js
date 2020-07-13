@@ -1,11 +1,12 @@
 const express = require('express');
 const router = express.Router();
 const database = require('../database');
+const CATEGORIES = require('../data/categories.data')
 
-// router.get('/postall', async (req, res) =>{
-//   const response = await database.insert(CATEGORIES).into('categories');
-//   res.json('success');
-// })
+router.get('/postall', async (req, res) =>{
+  const response = await database.insert(CATEGORIES).into('categories');
+  res.json('success');
+})
 
 router.get('/', async (req, res) => {
   try {

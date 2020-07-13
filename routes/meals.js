@@ -6,15 +6,15 @@ const categories = require('../data/categories.data');
 const database = require('../database');
 
 
-// router.get('/postall', async (req, res) =>{
-//   try {
-//     const response = await database('meals').insert(meals).returning('*');
-//     res.send(response)
-//   } catch (error) {
-//     res.status(400).send(error)
-//   }
+router.get('/postall', async (req, res) =>{
+  try {
+    const response = await database('meals').insert(meals).returning('*');
+    res.send(response)
+  } catch (error) {
+    res.status(400).send(error)
+  }
   
-// })
+})
 
 
 // GET ALL MEALS USING A SEARCH QUERY. MATCHING MEALS AND CATEGORY MEALS
