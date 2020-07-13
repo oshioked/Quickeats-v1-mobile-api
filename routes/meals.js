@@ -1,20 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const orders = require('../data/orders.data');
-const meals = require('../data/meals.data');
-const categories = require('../data/categories.data');
 const database = require('../database');
-
-
-router.get('/postall', async (req, res) =>{
-  try {
-    const response = await database('meals').insert(meals).returning('*');
-    res.send(response)
-  } catch (error) {
-    console.log(error)
-    res.status(400).send(error)
-  }
-})
 
 
 // GET ALL MEALS USING A SEARCH QUERY. MATCHING MEALS AND CATEGORY MEALS
