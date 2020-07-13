@@ -11,9 +11,9 @@ router.get('/postall', async (req, res) =>{
     const response = await database('meals').insert(meals).returning('*');
     res.send(response)
   } catch (error) {
+    console.log(error)
     res.status(400).send(error)
   }
-  
 })
 
 
@@ -71,9 +71,11 @@ router.get('/topOrdered', async (req, res) =>{
       const topOrderedMeals = await database.select('*').from('meals').where('id', 'in', sortedItemsAndOrders.map(item => item.itemId)).limit(5)
       res.status(200).json(topOrderedMeals)
     } catch (error) {
+      console.log(error)
       res.status(400).json('Error fetching most ordered meals')
     }
   } catch (error) {
+    console.log(error)
     res.status(400).json('Error fetching most ordered meals')
   }
 })
@@ -90,6 +92,7 @@ router.get('/category/:catId', async (req, res) =>{
     }
     res.status(200).json(categoryMeals);
   } catch (error) {
+    
     res.status(400).json("Error getting category meals")
   }
 })

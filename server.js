@@ -28,6 +28,7 @@ app.use('/api/user', authRouter);
 app.use('/user', userRouter);
 
 app.get('/', (req, res) =>{
+  console.log('working')
   res.status(200).json("Food delivery server")
 })
 

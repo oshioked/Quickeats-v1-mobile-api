@@ -8,6 +8,7 @@ router.get('/postall', async (req, res) =>{
     const response = await database.insert(CATEGORIES).into('categories');
     res.json('success');
   } catch (error) {
+    console.log(error)
     res.send(error)
   }
 })
