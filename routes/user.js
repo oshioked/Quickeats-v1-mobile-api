@@ -13,7 +13,9 @@ router.get('/:id', async (req, res)=>{
         const orderItemsTitle = await database.select('id', 'title').from('meals').whereIn('id', orderItemsId);
         if(!userData[0]){
             res.status(400).json("User not found");
+            return;
         }
+        
         res.status(200).json({
             userid: userData[0].userid,
             fullname: userData[0].fullname,
