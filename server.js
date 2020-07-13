@@ -27,6 +27,10 @@ app.use('/meals', mealsRouter);
 app.use('/api/user', authRouter);
 app.use('/user', userRouter);
 
+app.get('/', (req, res) =>{
+  res.status(200).json("Food delivery server")
+})
+
 
 const {PORT = 5000} = process.env;
 
