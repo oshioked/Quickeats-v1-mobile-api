@@ -16,10 +16,7 @@ router.get('/postall', async (req, res) =>{
 router.get('/', async (req, res) => {
   try {
     const categories = await database.select('*').from('categories');
-    console.log(categories)
-    setTimeout(()=>{
-      res.status(200).json(categories)
-    }, 2000)
+    res.status(200).json(categories);
     
   } catch (error) {
     console.log(error)
@@ -32,6 +29,7 @@ router.get('/hottest', async (req, res) =>{
     const hottestCategories = await database.select('*').from('categories').where('title', 'ilike', '%%').limit(2);
     res.status(200).json(hottestCategories)
   } catch (error) {
+    console.log(error)
     res.status(400).json("Error fetching hottest categories")
   }
 })
