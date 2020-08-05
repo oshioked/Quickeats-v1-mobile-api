@@ -142,7 +142,7 @@ router.post('/:userId/orders', async (req, res) =>{
     try {
         database.transaction( async (trx) => {
                 // INSERT ORDER INTO DATABASE
-                const orderId =  trx.insert({
+                const orderId =  await trx.insert({
                     items: JSON.stringify(items),
                     userid: userId,
                     status: 'pending',
@@ -151,7 +151,7 @@ router.post('/:userId/orders', async (req, res) =>{
                 }).into('orders').returning('id');
 
                 // UPDATE USER'S BONUS PROGRESS
-                const currentBonusProgress =  database.select('bonusprogress').from('users').where('userid', '=', userId);
+                const currentBonusProgress =  await database.select('bonusprogress').from('users').where('userid', '=', userId);
                 const additionBonusProgress = totalAmount/10000;
                 let newBonusProgress;
                 console.log(currentBonusProgress)
@@ -163,7 +163,7 @@ router.post('/:userId/orders', async (req, res) =>{
                 // YOU COLLECT PAYMENT HERE AND GRANT DISCOUNT IF CURRENTBONUSPROGRESS IS 1.
                
                 // UPDATE USER WITH ORDER AND BONUS PROGRESS
-                const updatedUser = trx.update({
+                const updatedUser = await trx.update({
                     orders: orderId.concat(userOrders[0].orders),
                     bonusprogress: (newBonusProgress > 1 ? 1 : newBonusProgress)
                 }).into('users').where('userid', '=', userId).returning('*');
