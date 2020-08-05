@@ -181,23 +181,17 @@ router.post('/:userId/orders', async (req, res) =>{
                         },
                         body: JSON.stringify({
                             to: "ExponentPushToken[fhnK-tLXJBrEqkctVuoGW9]",
-                            data: {
-                                orderNotification: true,
-                                userId: updatedUser[0].userid,
-                                orderId: orderId
-                            },
                             title: "New Order Recieved",
                             body: `${updatedUser[0].fullname} has a placed an order`
                         })
-                    })
-
-                    res.json(updatedUser);
-
-                    return;              
+                    })          
                 } catch (error) {
                     console.log(error)
                     throw new Error("Error perfoming push notification")
                 }
+
+                res.json(updatedUser);
+                return;
         })    
     } catch (error) {
         console.log(error)
