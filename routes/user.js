@@ -141,7 +141,6 @@ router.post('/:userId/orders', async (req, res) =>{
         // USE TRANSACTION TO POST ORDER TO ORDERS TABLE AND USERS TABLE
     try {
         database.transaction( async (trx) => {
-            try {
                 // INSERT ORDER INTO DATABASE
                 const orderId =  trx.insert({
                     items: JSON.stringify(items),
@@ -170,7 +169,7 @@ router.post('/:userId/orders', async (req, res) =>{
                 
                 // Send push notification to restaurant owner's phone
                 try {
-                    await fetch('https://exp.host/--/api/v2/push/send', {
+                    const response = await fetch('https://exp.host/--/api/v2/push/send', {
                         method: 'POST', 
                         headers: {
                             Accept: 'application/json',
@@ -188,17 +187,11 @@ router.post('/:userId/orders', async (req, res) =>{
                             body: `${updatedUser[0].fullname} has a placed an order`
                         })
                     })
+                    res.json(updatedUser);
+                    return;              
                 } catch (error) {
-                    console.log(error);
-                    res.status(500).json("Error placing order")
+                    throw new Error("Error perfoming push notification")
                 }
-                res.json(updatedUser)
-                trx.commit();
-                return;              
-            } catch (error) {
-                trx.rollback();
-                res.status(400).json('Error')
-            }
         })    
     } catch (error) {
         console.log(error)
