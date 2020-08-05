@@ -154,6 +154,7 @@ router.post('/:userId/orders', async (req, res) =>{
                 const currentBonusProgress =  trx.select('bonusprogress').from('users').where('userid', '=', userId);
                 const additionBonusProgress = totalAmount/10000;
                 let newBonusProgress;
+                console.log(currentBonusProgress)
                 newBonusProgress = parseFloat(currentBonusProgress[0].bonusprogress) + additionBonusProgress;
                 if(parseFloat(currentBonusProgress[0].bonusprogress) >= 1){
                     newBonusProgress = 0
