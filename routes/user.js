@@ -167,24 +167,28 @@ router.post('/:userId/orders', async (req, res) =>{
                 
 
                 // Send push notification to restaurant owner's phone
-                await fetch('https://exp.host/--/api/v2/push/send', {
-                    method: 'POST', 
-                    headers: {
-                        Accept: 'application/json',
-                        "Accept-Encoding": "gzip, deflate",
-                        "Content-Type": "application/json"
-                    },
-                    body: JSON.stringify({
-                        to: "ExponentPushToken[fhnK-tLXJBrEqkctVuoGW9]",
-                        data: {
-                            orderNotification: true,
-                            userId: updatedUser[0].userid,
-                            orderId: orderId
+                try {
+                    await fetch('https://exp.host/--/api/v2/push/send', {
+                        method: 'POST', 
+                        headers: {
+                            Accept: 'application/json',
+                            "Accept-Encoding": "gzip, deflate",
+                            "Content-Type": "application/json"
                         },
-                        title: "New Order Recieved",
-                        body: `${updatedUser[0].fullname} has a placed an order`
+                        body: JSON.stringify({
+                            to: "ExponentPushToken[fhnK-tLXJBrEqkctVuoGW9]",
+                            data: {
+                                orderNotification: true,
+                                userId: updatedUser[0].userid,
+                                orderId: orderId
+                            },
+                            title: "New Order Recieved",
+                            body: `${updatedUser[0].fullname} has a placed an order`
+                        })
                     })
-                })
+                } catch (error) {
+                    console.log(error)
+                }
                 res.json(updatedUser)
 
                 return;              
