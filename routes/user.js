@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const database = require('../database');
+const { async } = require('validate.js');
 
 // FETCH USER DATA
 router.get('/:id', async (req, res)=>{
@@ -139,9 +140,10 @@ router.post('/:userId/orders', async (req, res) =>{
     const userOrders = await database.select("orders").from('users').where('userid', '=', userId);
         // USE TRANSACTION TO POST ORDER TO ORDERS TABLE AND USERS TABLE
     try {
-        database.transaction(async (trx) => {
+        database.transaction( async (trx) => {
             try {
-                const orderId = await trx.insert({
+                // INSERT ORDER INTO DATABASE
+                const orderId =  trx.insert({
                     items: JSON.stringify(items),
                     userid: userId,
                     status: 'pending',
@@ -149,8 +151,8 @@ router.post('/:userId/orders', async (req, res) =>{
                     amount: totalAmount, 
                 }).into('orders').returning('id');
 
-
-                const currentBonusProgress = await trx.select('bonusprogress').from('users').where('userid', '=', userId);
+                // UPDATE USER'S BONUS PROGRESS
+                const currentBonusProgress =  trx.select('bonusprogress').from('users').where('userid', '=', userId);
                 const additionBonusProgress = totalAmount/10000;
                 let newBonusProgress;
                 newBonusProgress = parseFloat(currentBonusProgress[0].bonusprogress) + additionBonusProgress;
@@ -160,12 +162,12 @@ router.post('/:userId/orders', async (req, res) =>{
 
                 // YOU COLLECT PAYMENT HERE AND GRANT DISCOUNT IF CURRENTBONUSPROGRESS IS 1.
                
-                const updatedUser = await trx.update({
+                // UPDATE USER WITH ORDER AND BONUS PROGRESS
+                const updatedUser = trx.update({
                     orders: orderId.concat(userOrders[0].orders),
                     bonusprogress: (newBonusProgress > 1 ? 1 : newBonusProgress)
                 }).into('users').where('userid', '=', userId).returning('*');
                 
-
                 // Send push notification to restaurant owner's phone
                 try {
                     await fetch('https://exp.host/--/api/v2/push/send', {
@@ -191,7 +193,7 @@ router.post('/:userId/orders', async (req, res) =>{
                     res.status(500).json("Error placing order")
                 }
                 res.json(updatedUser)
-
+                trx.commit();
                 return;              
             } catch (error) {
                 trx.rollback();
