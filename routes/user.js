@@ -192,6 +192,7 @@ router.post('/:userId/orders', async (req, res) =>{
                     res.json(updatedUser);
                     return;              
                 } catch (error) {
+                    console.log(error)
                     throw new Error("Error perfoming push notification")
                 }
         })    
