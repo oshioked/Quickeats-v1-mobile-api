@@ -191,7 +191,7 @@ router.post('/:userId/orders', async (req, res) =>{
                         })
                     })
 
-                    console.log(response)
+                    console.log(response.json())
                     res.json(updatedUser);
 
                     return;              
