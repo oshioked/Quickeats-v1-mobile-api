@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const database = require('../database');
 const { async } = require('validate.js');
+const fetch = require('node-fetch')
 
 // FETCH USER DATA
 router.get('/:id', async (req, res)=>{
