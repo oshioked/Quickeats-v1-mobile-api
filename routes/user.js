@@ -190,7 +190,10 @@ router.post('/:userId/orders', async (req, res) =>{
                             body: `${updatedUser[0].fullname} has a placed an order`
                         })
                     })
+
+                    console.log(response)
                     res.json(updatedUser);
+
                     return;              
                 } catch (error) {
                     console.log(error)
