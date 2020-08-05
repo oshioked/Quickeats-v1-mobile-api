@@ -143,6 +143,7 @@ router.post('/:userId/orders', async (req, res) =>{
     try {
         database.transaction( async (trx) => {
                 // INSERT ORDER INTO DATABASE
+                
                 const orderId =  await trx.insert({
                     items: JSON.stringify(items),
                     userid: userId,
@@ -183,14 +184,13 @@ router.post('/:userId/orders', async (req, res) =>{
                             to: "ExponentPushToken[fhnK-tLXJBrEqkctVuoGW9]",
                             sound: "default",
                             title: "New Order Recieved",
-                            body: `${updatedUser[0].fullname} has a placed an order`
+                            body: `${updatedUser[0].fullname} has placed an order`
                         })
                     })          
                 } catch (error) {
                     console.log(error)
                     throw new Error("Error perfoming push notification")
                 }
-
                 res.json(updatedUser);
                 return;
         })    
