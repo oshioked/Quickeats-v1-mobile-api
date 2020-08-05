@@ -181,6 +181,7 @@ router.post('/:userId/orders', async (req, res) =>{
                         },
                         body: JSON.stringify({
                             to: "ExponentPushToken[fhnK-tLXJBrEqkctVuoGW9]",
+                            sound: "default",
                             title: "New Order Recieved",
                             body: `${updatedUser[0].fullname} has a placed an order`
                         })
