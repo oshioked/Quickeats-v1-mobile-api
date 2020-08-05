@@ -151,7 +151,7 @@ router.post('/:userId/orders', async (req, res) =>{
                 }).into('orders').returning('id');
 
                 // UPDATE USER'S BONUS PROGRESS
-                const currentBonusProgress =  trx.select('bonusprogress').from('users').where('userid', '=', userId);
+                const currentBonusProgress =  database.select('bonusprogress').from('users').where('userid', '=', userId);
                 const additionBonusProgress = totalAmount/10000;
                 let newBonusProgress;
                 console.log(currentBonusProgress)
